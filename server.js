@@ -26,8 +26,8 @@ connectDB();
 // Route files in
 const auth = require('./routes/auth');
 const user = require('./routes/users');
-const article = require('./routes/articles');
-const comments = require('./routes/comments');
+const twitee = require('./routes/twitees');
+const comment = require('./routes/comments');
 
 
 const app = express();
@@ -79,12 +79,11 @@ app.use((req, res, next) => {
 // Set static folder
 app.use(express.static(path.join(__dirname, "public")));
 
-
 // Mount routers
 app.use('/api/v1/auth', auth);
 app.use('/api/v1/users', user);
-app.use('/api/v1/articles', article);
-app.use('/api/v1/comments', comments);
+app.use('/api/v1/twitees', twitee);
+app.use('/api/v1/comments', comment);
 
 app.use(errorHandler);
 
