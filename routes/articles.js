@@ -1,5 +1,5 @@
 const express = require("express");
-const Article = require("../models/Article");
+const Article = require("../models/Twitee");
 const { protect, authorize } = require("../middleware/auth");
 const advancedResults = require("../middleware/advancedResults");
 
@@ -9,7 +9,7 @@ const {
     createArticle,
     updateArticle,
     deleteArticle,
-} = require("../controllers/articles");
+} = require("../controllers/twitees");
 const router = express.Router();
 
 
