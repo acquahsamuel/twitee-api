@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const slugify = require("slugify");
 
-const ArticleSchema = new mongoose.Schema({
+const TwiteeSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
@@ -10,7 +10,6 @@ const ArticleSchema = new mongoose.Schema({
   subTitle: {
     type: String,
   },
-
   content: {
     type: String,
     default: true,
@@ -33,7 +32,7 @@ const ArticleSchema = new mongoose.Schema({
   status: {
     type: String,
     enum: ["private", "public"],
-    default: "public",
+    default: "private",
   },
 
   allowComments: {
@@ -53,22 +52,19 @@ const ArticleSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.ObjectId,
     ref: "User",
-    //FIXME: @dd required : true
   },
 
-  //FIXME: { if array of just object }
   comments: {
     type: mongoose.Schema.ObjectId,
     ref: "Comment",
-    //FIXME: @dd required : true
   },
 });
 
-ArticleSchema.pre("save", function (next) {
+TwiteeSchema.pre("save", function (next) {
   this.url = slugify(this.title, {
     lower: true,
   });
   next();
 });
 
-module.exports = mongoose.model("Article", ArticleSchema);
+module.exports = mongoose.model("Twitee", TwiteeSchema);
