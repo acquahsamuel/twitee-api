@@ -1,4 +1,4 @@
-### twitee-api
+### Twitee-api
 
 At Intelligent Innovations we take great pride in tackling complex problems and creating
 solutions that are innovative and impactful. To deliver on that promise, we follow best practices
