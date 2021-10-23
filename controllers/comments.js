@@ -14,7 +14,6 @@ exports.getComments = asyncHandler(async (req, res, next) => {
 });
 
 
-
 // @desc      Create Comments
 // @access    Private/Admin
 exports.createComment = asyncHandler(async (req, res, next) => {
@@ -34,10 +33,8 @@ exports.getComment = asyncHandler(async (req, res, next) => {
   const comment = await Comment.findById(req.params.id);
 
   if (!comment) {
-    return next(new ErrorResponse(`Category not found with id of ${req.params.id}`, 404)
-    )
+    return next(new ErrorResponse(`Category not found with id of ${req.params.id}`, 404))
   }
-
   res.status(200).json({
     success: true,
     data: comment
@@ -71,4 +68,3 @@ exports.deleteComment = asyncHandler(async (req, res, next) => {
     data: {}
   });
 });
-
