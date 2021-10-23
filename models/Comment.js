@@ -15,10 +15,10 @@ const CommentSchema = new Schema({
     type: Boolean,
     default: false,
   },
-
-  commentCount: {
-    type: Number,
-    default: 0,
+  twiteeId: {
+    type: mongoose.Schema.ObjectId,
+    ref: "Twitee",
+    required: true,
   },
   date: {
     type: Date,

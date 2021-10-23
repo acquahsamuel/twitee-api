@@ -15,7 +15,7 @@ const TwiteeSchema = new mongoose.Schema({
     default: true,
   },
 
-  url: String,
+  twiteeURL: String,
 
   category: {
     type: String,
@@ -42,6 +42,7 @@ const TwiteeSchema = new mongoose.Schema({
 
   image: {
     type: String,
+    default: "image-1.png",
   },
 
   createdAt: {

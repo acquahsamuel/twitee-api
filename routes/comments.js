@@ -16,10 +16,8 @@ const {
     authorize
 } = require('../middleware/auth');
 
-router.use(protect);
-router.use(authorize('admin'));
-
-
+// router.use(protect);
+// router.use(authorize('admin'));
 
 router.route('/')
     .get(getComments)

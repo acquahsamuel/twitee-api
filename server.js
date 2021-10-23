@@ -29,7 +29,6 @@ const user = require('./routes/users');
 const twitee = require('./routes/twitees');
 const comment = require('./routes/comments');
 
-
 const app = express();
 
 // Body parser 
@@ -42,6 +41,9 @@ app.use(cookieParser());
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
+
+
+
 
 // File uploading
 app.use(fileupload());

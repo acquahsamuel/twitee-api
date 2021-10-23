@@ -3,11 +3,9 @@ const Comment = require('../models/Comment');
 const ErrorResponse = require('../utils/errorResponse');
 const asyncHandler = require('../middleware/async');
 
-// @desc      Get all users
-// @route     GET /api/v1/auth/users
+// @desc      Get all comment
 // @access    Private/Admin
 exports.getComments = asyncHandler(async (req, res, next) => {
-  // res.status(200).json(res.advancedResults);
   const comments = await Comment.find();
   res.status(200).json({
     success: true,
@@ -17,8 +15,7 @@ exports.getComments = asyncHandler(async (req, res, next) => {
 
 
 
-// @desc      Create user
-// @route     POST /api/v1/auth/users
+// @desc      Create Comments
 // @access    Private/Admin
 exports.createComment = asyncHandler(async (req, res, next) => {
   const comment = await Comment.create(req.body);
@@ -30,8 +27,7 @@ exports.createComment = asyncHandler(async (req, res, next) => {
 
 
 
-// @desc      Get single user
-// @route     GET /api/v1/auth/users/:id
+// @desc      Get single comment
 // @access    Private/Admin
 exports.getComment = asyncHandler(async (req, res, next) => {
   // if comment with such id not found return error 
@@ -52,7 +48,6 @@ exports.getComment = asyncHandler(async (req, res, next) => {
 
 
 // @desc      Update user * whitelist
-// @route     PUT /api/v1/auth/users/:id
 // @access    Private/Admin
 exports.updateComment = asyncHandler(async (req, res, next) => {
   const comment = await Comment.findByIdAndUpdate(req.params.id, req.body, {
@@ -67,8 +62,7 @@ exports.updateComment = asyncHandler(async (req, res, next) => {
 });
 
 
-// @desc      Delete user
-// @route     DELETE /api/v1/auth/users/:id
+// @desc      Delete comment
 // @access    Private/Admin
 exports.deleteComment = asyncHandler(async (req, res, next) => {
   await Comment.findByIdAndDelete(req.params.id);
