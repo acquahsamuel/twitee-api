@@ -1,12 +1,19 @@
-const Twitee = require('../models/Twitee')
+const Twitee = require('../models/Twitee');
+const Comment = require('../models/Comment');
 const ErrorResponse = require('../utils/errorResponse')
 const asyncHandler = require('../middleware/async')
 
 // @desc      Get all twitee
 //@access    Private/Admin
 exports.getTwitees = asyncHandler(async (req, res, next) => {
-  await res.status(200).json(res.advancedResults)
-})
+  const twitees = await Twitee.find({});
+  res.status(200).json({
+    success: true,
+    count: twitees.length,
+    data: twitees
+  });
+});
+
 
 // @desc      Create twitee
 // @access    Private/Admin

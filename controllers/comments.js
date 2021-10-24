@@ -6,7 +6,10 @@ const asyncHandler = require('../middleware/async');
 // @desc      Get all comment
 // @access    Private/Admin
 exports.getComments = asyncHandler(async (req, res, next) => {
-  const comments = await Comment.find();
+  const comments = await Comment.find({}).populate({
+    path: 'twiteeId',
+    select: 'user',
+});
   res.status(200).json({
     success: true,
     data: comments
@@ -23,7 +26,6 @@ exports.createComment = asyncHandler(async (req, res, next) => {
     data: comment
   });
 });
-
 
 
 // @desc      Get single comment
