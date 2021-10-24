@@ -14,6 +14,10 @@ code and driving development via tests.
 | `Npm community` | [Exploration and npm packages](https://www.npmjs.com/) |
 
 
+### Run api locally 
+
+
+
 | Basic Commmands| Reference |
 | --- | --- |
 | `npm start` | Start server |
