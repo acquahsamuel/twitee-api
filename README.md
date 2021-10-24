@@ -14,13 +14,23 @@ code and driving development via tests.
 | `Npm community` | [Exploration and npm packages](https://www.npmjs.com/) |
 
 
-### Run api locally 
+### Run api locally
+clone project locally 
 
 
 
-| Basic Commmands| Reference |
-| --- | --- |
-| `npm start` | Start server |
+
+Install required packages 
+`npm install`
+
+
+Start server
+| `npm start` |
+
+Configuring .env file 
+Generate mongodb URL 
+
+
 
 
 The API is live at [twitee-api](https://twitee-backend-api.herokuapp.com/)
