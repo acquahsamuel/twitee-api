@@ -14,22 +14,35 @@ code and driving development via tests.
 | `Npm community` | [Exploration and npm packages](https://www.npmjs.com/) |
 
 
-### Run api locally
+## Run api locally
 clone project locally 
-
-
+`git clone https://github.com/acquahsamuel/twitee-api.git`
 
 
 Install required packages 
 `npm install`
 
 
-Start server
-| `npm start` |
 
 Configuring .env file 
-Generate mongodb URL 
+```.env
 
+MONGO_URI_USERNAME=twitee-api
+MONGO_URI_PASSWORD=
+
+MONGO_URI_PROD=
+MONGO_URI_DEV=mongodb://localhost:27017/twitee-api
+
+
+JWT_SECRET=thisisthejwtsecretcodetwiteeapi
+JWT_EXPIRE=30d
+JWT_COOKIE_EXPIRE=30
+
+```
+
+
+Start server
+`npm start`
 
 
 The API is live at [twitee-api](https://twitee-backend-api.herokuapp.com/)
