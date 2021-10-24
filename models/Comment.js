@@ -15,11 +15,12 @@ const CommentSchema = new Schema({
     type: Boolean,
     default: false,
   },
-  twiteeId: {
+  twiteeId: [{ 
     type: mongoose.Schema.ObjectId,
     ref: "Twitee",
     required: true,
-  },
+  }],
+
   date: {
     type: Date,
     default: Date.now(),

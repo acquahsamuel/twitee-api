@@ -19,7 +19,7 @@ const TwiteeSchema = new mongoose.Schema({
 
   category: {
     type: String,
-    enum: ["bussiness", "politics", "entertainment", "sports", "general"],
+    enum: ["business", "politics", "entertainment", "sports", "general"],
     default: "general",
   },
 
@@ -55,10 +55,10 @@ const TwiteeSchema = new mongoose.Schema({
     ref: "User",
   },
 
-  comments: {
+  comments: [{
     type: mongoose.Schema.ObjectId,
     ref: "Comment",
-  },
+  }],
 });
 
 TwiteeSchema.pre("save", function (next) {
