@@ -5,11 +5,13 @@ solutions that are innovative and impactful. To deliver on that promise, we foll
 in developing applications, e.g, having a well-defined directory structure, writing clean modular
 code and driving development via tests.
 
-```
-The API is live at [twitee-api](https://twitee-backend-api.herokuapp.com/)
-```
 
-| Tool | Resources |
+The API Endpoints is live at [twitee-api](https://twitee-backend-api.herokuapp.com/) 
+
+The API Endpoints is live [twitee-api-postman version](https://documenter.getpostman.com/view/11272001/UV5agbwD)
+
+
+| Tool | Resources Links |
 | --- | --- |
 | `Install node.js ` | [Download node ](https://nodejs.org/en/download/) |
 | `Postman ` | [Download Postman ](https://www.postman.com/downloads/) |
