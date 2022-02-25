@@ -1,5 +1,4 @@
 const Twitee = require('../models/Twitee');
-const Comment = require('../models/Comment');
 const ErrorResponse = require('../utils/errorResponse');
 const asyncHandler = require('../utils/async');
 
