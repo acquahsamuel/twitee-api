@@ -1,6 +1,5 @@
 const express = require('express');
 const Twitee = require('../models/Twitee');
-const { protect, authorize } = require('../utils/auth');
 const advancedResults = require('../utils/advancedResults');
 
 const {
