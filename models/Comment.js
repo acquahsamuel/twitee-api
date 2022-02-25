@@ -1,10 +1,11 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+
+const { Schema } = mongoose;
 
 const CommentSchema = new Schema({
   user: {
     type: mongoose.Schema.ObjectId,
-    ref: "User",
+    ref: 'User',
     required: true,
   },
   body: {
@@ -15,11 +16,13 @@ const CommentSchema = new Schema({
     type: Boolean,
     default: false,
   },
-  twiteeId: [{ 
-    type: mongoose.Schema.ObjectId,
-    ref: "Twitee",
-    required: true,
-  }],
+  twiteeId: [
+    {
+      type: mongoose.Schema.ObjectId,
+      ref: 'Twitee',
+      required: true,
+    },
+  ],
 
   date: {
     type: Date,
@@ -27,4 +30,4 @@ const CommentSchema = new Schema({
   },
 });
 
-module.exports = mongoose.model("Comment", CommentSchema);
+module.exports = mongoose.model('Comment', CommentSchema);

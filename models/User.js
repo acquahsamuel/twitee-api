@@ -13,6 +13,7 @@ const UserSchema = new mongoose.Schema({
     required: [true, 'Please add an email'],
     unique: true,
     match: [
+      // eslint-disable-next-line no-useless-escape
       /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
       'Please add a valid email',
     ],
@@ -47,20 +48,23 @@ UserSchema.pre('save', async function (next) {
   this.password = await bcrypt.hash(this.password, salt);
 });
 
-
 // Sign JWT and return
 UserSchema.methods.getSignedJwtToken = function () {
-  return jwt.sign({
+  return jwt.sign(
+    {
+      // eslint-disable-next-line no-underscore-dangle
       id: this._id,
     },
-    process.env.JWT_SECRET, {
-      expiresIn: process.env.JWT_EXPIRE
-    }
+    process.env.JWT_SECRET,
+    {
+      expiresIn: process.env.JWT_EXPIRE,
+    },
   );
 };
 
 // Match user entered password to hashed password in database
 UserSchema.methods.matchPassword = async function (enteredPassword) {
+  // eslint-disable-next-line no-return-await
   return await bcrypt.compare(enteredPassword, this.password);
 };
 

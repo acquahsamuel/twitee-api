@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const slugify = require("slugify");
+const mongoose = require('mongoose');
+const slugify = require('slugify');
 
 const TwiteeSchema = new mongoose.Schema({
   title: {
@@ -19,20 +19,20 @@ const TwiteeSchema = new mongoose.Schema({
 
   category: {
     type: String,
-    enum: ["business", "politics", "entertainment", "sports", "general"],
-    default: "general",
+    enum: ['business', 'politics', 'entertainment', 'sports', 'general'],
+    default: 'general',
   },
 
   language: {
     type: String,
-    enum: ["en", "tr", "es"],
-    default: "en",
+    enum: ['en', 'tr', 'es'],
+    default: 'en',
   },
 
   status: {
     type: String,
-    enum: ["private", "public"],
-    default: "private",
+    enum: ['private', 'public'],
+    default: 'private',
   },
 
   allowComments: {
@@ -42,7 +42,7 @@ const TwiteeSchema = new mongoose.Schema({
 
   image: {
     type: String,
-    default: "image-1.png",
+    default: 'image-1.png',
   },
 
   createdAt: {
@@ -52,20 +52,22 @@ const TwiteeSchema = new mongoose.Schema({
 
   user: {
     type: mongoose.Schema.ObjectId,
-    ref: "User",
+    ref: 'User',
   },
 
-  comments: [{
-    type: mongoose.Schema.ObjectId,
-    ref: "Comment",
-  }],
+  comments: [
+    {
+      type: mongoose.Schema.ObjectId,
+      ref: 'Comment',
+    },
+  ],
 });
 
-TwiteeSchema.pre("save", function (next) {
+TwiteeSchema.pre('save', function (next) {
   this.url = slugify(this.title, {
     lower: true,
   });
   next();
 });
 
-module.exports = mongoose.model("Twitee", TwiteeSchema);
+module.exports = mongoose.model('Twitee', TwiteeSchema);
